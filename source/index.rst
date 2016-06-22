@@ -609,16 +609,71 @@ Organisation pair-à-pair
 .. rst-class:: exercice
 
 
-   Le meilleur moyen d'expérimenter la collaboration est de travailler avec des collaborateurs !
+Exercices
++++++++++
 
-   Si vous voulez essayer, publiez votre dépôt sur l'espace partagé de votre choix, et demandez à un collègue d'en faire un clone.
+.. rst-class:: exercice
 
-   C'est à vous de fixer les droits sur votre dépôt distant en fonction de ce que vous souhaitez (accessible en lecture seule, ou bien en lecture / écriture).
+Exercice : préambule
+--------------------
 
+Nous supposons que vous disposez d'un compte sur https://framagit.org
+
+Vous disposez normalement de votre clef SSH publique dans  *~/.ssh/id_rsa.pub*
+
+Cette clef servira à vous authentifier auprès des dépôts git distants hébergés
+sur framagit.
+
+Copier/coller son contenu dans votre profil : https://framagit.org/profile/key
+et sauvegarder.
+
+.. rst-class:: exercice
+
+Exercice : utiliser un dépôt distant
+------------------------------------
+
+#. Sur votre compte *framagit*, créez un nouveau dépôt privé nommé tp-intro-git,
+   bien noter l'URL du dépôt
+   git distant (de la forme ``https://framagit.org/<login>/tp-intro-git.git``).
+
+#. Prenez le dépôt local avec lequel vous avez déjà travaillé dans la séance,
+   et liez ce dépôt à votre dépôt distant (*remote*) fraîchement créé,
+
+#. Poussez-y vos commits.
+
+.. rst-class:: exercice
+
+Exercice : collaborer (par binôme)
+----------------------------------
+
+On constitue des binômes, pour l'exemple, on considèrera que *bob* et *alice*
+sont les membres du binôme.
+
+.. rst-class:: exercice
+
+
+#. *bob* : donnez les droits d'accès *Développeur* au groupe de formation (dont
+   *alice* fait partie) et communiquez à *alice* l'adresse du dépôt.
+
+   .. figure:: _static/gitlab-project-settings.png
+
+      Menu préférences d'un dépôt.
+
+.. nextslide::
+.. rst-class:: exercice
+
+2. *alice* :  *clonez* le dépôt de *bob*,  *commitez-y* quelques modifications.
+
+#. *alice & bob* : Pourquoi ne sont-elles pas immédiatement visibles de bob ?
+
+#. *alice & bob* : Remédiez à ce problème
+
+#. *bob* : récupèrez les modifications d'*alice*
+#. *bob* : poussez à votre tour quelques modifications
+#. *alice* : récupérez les modifications de *bob* (*et indiquer la référence de
+   son dernier commit dans votre fichier de rendu*).
 
 .. _naviguer:
-
-
 
 Naviguer dans l'historique
 ==========================
