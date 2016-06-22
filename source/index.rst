@@ -220,14 +220,6 @@ et possèdent :
 * une description textuelle
 * un lien vers le(s) commit(s) précédent(s)
 
-On parle également de **révision**.
-
-.. note::
-
-  GIT fait une distinction subtile entre `revision`:eng:, `commit`:eng: et
-  `commit object`:eng: mais elle n'est pas utile ici.
-  
-
 Illustration
 ````````````
 
