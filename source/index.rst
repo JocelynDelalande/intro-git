@@ -484,6 +484,8 @@ Lier à un dépôt distant
 
   $ git remote add <nom> <emplacement>
 
+On peut lister les dépôts distants ::
+  $ gite remote -v
 
 .. index:: git fetch
 
