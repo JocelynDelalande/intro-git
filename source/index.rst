@@ -12,9 +12,12 @@
 
    <!-- NB: using raw:: directive in order to accurately tag metadata -->
 
-     <a rel="author">Département Informatique
-       (<a href="http://iut.univ-lyon1.fr/">IUT Lyon 1</a>)
-          </a>
+     <a rel="author">
+       <a href="http://iut.univ-lyon1.fr/">Dépt. Informatique IUT Lyon 1</a>
+     </a> &
+       <a rel="author" href="jocelyn.delalande.fr">
+         Jocelyn Delalande
+       </a>
 
      <a rel="license"
         href="http://creativecommons.org/licenses/by-sa/3.0/fr/deed.en">
@@ -1556,8 +1559,9 @@ même pour vos petits projets...
 Crédits
 =======
 
-Ce support a été réalisé par `Pierre-Antoine Champin`_ et `Amélie Cordier`_.
+Ce support a été initialement réalisé par `Pierre-Antoine Champin`_,  `Amélie
+Cordier`_ puis adapté par `Jocelyn Delalande` pour ses besoins propres d'enseignement.
 
 .. _Pierre-Antoine Champin: http://champin.net/
 .. _Amélie Cordier: http://acordier.net/
-
+.. _Jocelyn Delalande: https://jocelyn.delalande.fr/
