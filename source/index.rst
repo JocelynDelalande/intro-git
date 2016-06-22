@@ -313,6 +313,7 @@ Notez qu'en cas de problème, il est possible de corriger un commit
  mais nous étudierons cela plus tard. 
 
 
+.. nextslide::
 
 Ajouter un fichier dans l'index ::
 
