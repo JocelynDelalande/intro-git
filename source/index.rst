@@ -448,21 +448,22 @@ Un dépôt distant a un emplacement qui peut être :
 
 .. index:: branche; de suivi, remote-tracking branch
 
-Branche de suivi
-----------------
+..
+   Branche de suivi
+   ----------------
 
-Pour chaque branche d'un dépôt distant,
-GIT crée dans le dépôt local une branche spéciale appelée **branche de suivi**
-(en anglais `remote-tracking branch`:eng:). Leur nom est de la forme :
+   Pour chaque branche d'un dépôt distant,
+   GIT crée dans le dépôt local une branche spéciale appelée **branche de suivi**
+   (en anglais `remote-tracking branch`:eng:). Leur nom est de la forme :
 
-  ``remotes/<dépôt-distant>/<branche>``
+     ``remotes/<dépôt-distant>/<branche>``
 
 
-Cette branche reflète l'état de la branche distante correspondante ;
-elle n'a pas vocation a être modifiée directement.
+   Cette branche reflète l'état de la branche distante correspondante ;
+   elle n'a pas vocation a être modifiée directement.
 
-Elle peut en revanche être *fusionnée* à une branche locale,
-afin d'y intégrer les modifications faites par d'autres.
+   Elle peut en revanche être *fusionnée* à une branche locale,
+   afin d'y intégrer les modifications faites par d'autres.
 
 
 Mise en œuvre
@@ -491,38 +492,47 @@ Récupérer les commits distants
 
 À répéter régulièrement ::
 
-  $ git fetch <dépôt-distant>
+  $ git pull
+  
+  ..
+     $ git fetch <dépôt-distant>
 
-.. hint::
+     
+..
+   .. hint::
 
-   Les branches de suivi sont créées par le ``fetch``.
+      Les branches de suivi sont créées par le ``fetch``.
 
-   Ainsi, si de nouvelles branches sont créées dans le dépôt distant,
-   les branches de suivi correspondantes seront également ajoutées.
+      Ainsi, si de nouvelles branches sont créées dans le dépôt distant,
+      les branches de suivi correspondantes seront également ajoutées.
 
 .. index:: git merge
 
-Fusionner une branche de suivi
-------------------------------
+..
+   Fusionner une branche de suivi
+   ------------------------------
 
-Le principe est le même que pour la fusion entre branches locales.
+   Le principe est le même que pour la fusion entre branches locales.
 
-::
+   ::
 
-   $ git merge remotes/<branche-de-suivi>
+      $ git merge remotes/<branche-de-suivi>
 
-.. index:: git push, pousser
+   .. index:: git push, pousser
 
 Publier des commits
 -------------------
 
 ::
 
-  $ git push <dépôt-distant> <branche-locale>
+  $ git push
 
 .. hint:: Suppose d'avoir des droits en écriture sur le dépôt distant.
 
-
+.. note::
+   Lorsqu'on utilise plusieurs *branches* et plusieurs *remotes* on précise ce
+   qu'on pousse et où on le pousse ::
+     $ git push <dépôt-distant> <branche-locale>
 .. _git-clone:
 .. index:: git clone, cloner
 
@@ -573,30 +583,29 @@ Organisation pair-à-pair
 
 .. index:: git init, git remote, git push
 
-Créer un dépôt public
----------------------
+..
+   Créer un dépôt public
+   ---------------------
 
-::
+   ::
 
-  $ git init --bare <emplacement>
-  $ git remote add <nom> <emplacement>
-  $ git push <nom> HEAD
+     $ git init --bare <emplacement>
+     $ git remote add <nom> <emplacement>
+     $ git push <nom> HEAD
 
-.. note::
+   .. note::
 
-   L'emplacement choisi doit évidemment être accessible à d'autres,
-   par exemple sur un disque partagé.
+      L'emplacement choisi doit évidemment être accessible à d'autres,
+      par exemple sur un disque partagé.
 
-   La procédure d'initialisation du dépôt peut-être différente
-   si on utilise un service en réseau (par exemple github_).
+      La procédure d'initialisation du dépôt peut-être différente
+      si on utilise un service en réseau (par exemple github_).
 
-.. _github: http://github.com/
+   .. _github: http://github.com/
 
 
 .. rst-class:: exercice
 
-Exercice
-````````
 
    Le meilleur moyen d'expérimenter la collaboration est de travailler avec des collaborateurs !
 
@@ -1360,6 +1369,7 @@ Il existe plusieurs sites permettant d'héberger et de partager vos projets GIT�
 .. _BitBucket: https://bitbucket.org/
 .. _Framagit: https://git.framasoft.org/
 .. _GitLab: https://gitlab.com/
+.. _github: http://github.com/
 
 N'hésitez pas à visiter ces sites et à explorer les projets qui s'y trouvent...
 C'est une grande source d'inspiration.
