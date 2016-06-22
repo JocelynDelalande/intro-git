@@ -443,7 +443,7 @@ avec lesquels il pourra partager des commits.
 Un dépôt distant a un emplacement qui peut être :
 
 * un répertoire (sur un disque local ou partagé), ou
-* une URL (par exemple http://github.com/pchampin/intro-git).
+* une URL (par exemple http://github.com/JocelynDelalande/intro-git).
 
 
 .. index:: branche; de suivi, remote-tracking branch
