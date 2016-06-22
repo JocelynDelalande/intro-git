@@ -232,19 +232,6 @@ Illustration
 NB : on ignore pour l'instant le rectangle ``master``\ ;
 on l'expliquera par la suite.
 
-Remarque
-````````
-
-En pratique, GIT ne stocke pas la totalité des fichiers pour chaque commit,
-mais seulement les différences par rapport à l'état suivant.
-
-**Avantage** par rapport à l'approche manuelle : moins coûteux en place.
-
-NB : bien que GIT (et les autres |VCS|)
-soient plus particulièrement conçus pour des fichiers texte,
-ils fonctionnent aussi avec des fichiers binaires (images, bureautique, etc.).
-
-.. index:: copie de travail, working copy
 
 Copie de travail
 ----------------
@@ -417,10 +404,6 @@ Exercice
    et répétez l'opération plusieurs fois pour bien comprendre le processus. 
 
 #. Ajoutez maintenant quelques fichiers dans votre répertoire (fichiers textes, images, etc.) et assurez-vous de bien commiter ces nouveaux fichiers. 
-
-.. note::
-
-   Il faut observer le .git. S'il n'apparaît pas, veiller à configurer l'explorateur de fichiers pour qu'il affiche es fichiers et dossiers cachés. 
 
 ..   * Créer votre projet GIT pour gérer votre CV en HTML
 ..   * Faites plusieurs commit (par exemple, après avoir rempli chaque section)
