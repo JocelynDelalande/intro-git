@@ -368,7 +368,7 @@ Résumé des états possibles d'un fichier avec GIT
 .. rst-class:: exercice
 
 Exercice - Préambule
-````````````````````
+--------------------
 
 Lorsque vous utilisez git, il peut être utile de le configurer
  pour préciser votre nom d'utilisateur et votre adresse email, 
@@ -387,7 +387,7 @@ Lorsque vous utilisez git, il peut être utile de le configurer
 .. rst-class:: exercice
 
 Exercice
-````````
+--------
 
 #. Créez un nouveau dépôt git dans un dossier vide. Créez dans ce dernier un
    nouveau répertoire (``mkdir``) puis observez le contenu du répertoire
