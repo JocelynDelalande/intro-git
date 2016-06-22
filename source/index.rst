@@ -1174,7 +1174,7 @@ Cette opération est en fait un raccourci, qui
 
 Remarque : le clone peut se faire selon plusieurs protocoles : HTTPS, SSH, etc.
 
-.. note:: Problème depuis de campus Lyon1
+.. note:: Problème depuis certains réseaux
 
   Si vous rencontrez des problèmes pour cloner un dépôt,
   cela peut venir d'une mauvaise configuration du *proxy*.
