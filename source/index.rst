@@ -192,12 +192,17 @@ Notions
 Dépôt (:eng:`repository`)
 -------------------------
 
-Le répertoire caché ``.git`` est nommé **dépôt**
-(en anglais :eng:`repository`).
+Un **dépôt** (en anglais :eng:`repository`) est l'historique complet d'un
+répertoire de fichiers ; il inclut en détail toutes les modifications apportées
+au répertoire, ses fichiers et leur contenu. Le dépôt lui-même  est contenu
+dans un répertoire caché ``.git``.
 
-Il contient toutes les données dont GIT a besoin pour gérer l'historique.
-Sauf rare exception, vous ne devez pas modifier son contenu directement,
-mais uniquement à travers les commandes GIT.
+À côté du dossier ``.git`` on a généralement une vue des fichiers contenus à
+un certain point de l'historique, que l'on peut observer ou modifier.
+
+.. note::
+   On ne modifie jamais directement le contenue du ``.git``, on le manipule, à
+   l'aide d'outils comme la commande ``git``.
 
 .. index:: commit, révision
 
