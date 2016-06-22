@@ -813,8 +813,8 @@ qui seraient in-envisageables avec une gestion « manuelle » de l'historique.
   - mais s'avèrent vite indispensables quand on y a pris goût.
 
 
-Branches
-========
+BONUS : Branches
+================
 
 .. note::
    Cette section est ici pour référence mais ne sera pas traitée en cours.
@@ -1142,8 +1142,8 @@ Exercice
 
 .. _conflits:
 
-Gérer les conflits
-==================
+BONUS : Gérer les conflits
+==========================
 
 .. note::
    Cette section est ici pour référence mais ne sera pas traitée en cours.
@@ -1300,8 +1300,8 @@ Exercice
 
 #. Fusionnez la branche précédente dans la branche master. Que se passe-t-il ? 
 
-Ré-écrire l'histoire
-====================
+BONUS : Ré-écrire l'histoire
+============================
 
 .. note::
    Cette section est ici pour référence mais ne sera pas traitée en cours.
@@ -1376,9 +1376,8 @@ Depuis la branche à « rebaser » ::
   $ git rebase <branche-destination>
 
 
-
-Pour aller plus loin 
-====================
+BONUS : Pour aller plus loin
+============================
 
 .. note::
    Cette section est ici pour référence mais ne sera pas traitée en cours.
