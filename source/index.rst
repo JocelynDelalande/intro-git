@@ -339,16 +339,14 @@ Pour commiter les modifications indexées ::
 Consulter l'historique
 ----------------------
 
-  - afficher la liste des commits ::
+  - afficher la liste des commits (avec l'identifiant de chaque commit) ::
 
       $ git log
 
-    (avec l'identifiant de chaque commit)
+    .. image:: _static/git-log-annot.png
+       :width: 50%
 
-.. figure:: _static/git-log-annot.png
-   :width: 50%
 
-_
   - afficher le détail d'un commit particulier ::
 
       $ git show <id-commit>
