@@ -275,49 +275,37 @@ Ces modifications peuvent être :
 * modification de fichier
 * suppression de fichier
 
+État de l'index
++++++++++++++++
+
+La commande ``git status`` permet de savoir où on en est :
+
 .. figure:: _static/historique3.png
    :width: 100%
 
 
 .. note::
-
-   On remarque le code couleur de l'application ``gitk``\ :
+   On remarque le code couleur :
 
    * rouge : changements non indexés, non commités
    * vert :  changements indexés, non commités
-   * jaune : commit courant (HEAD)
-   * bleu :  autres commits
 
 
 Mise en œuvre
 +++++++++++++
 
-Deux méthodes possibles :
-
-* Interface graphique (Git Gui)
-* Ligne de commande (Git Bash)
-
-.. figure:: _static/popup_menu.png
-   :width: 35%
-
-.. index:: git init
+.. note::
+   Nous utiliserons dans ce cours la ligne de commande ``git`` ; notez qu'il
+   existe également différentes interfaces graphiques plus ou moins complètes
+   pour manipuler des dépôts git telles ``gitk`` ou ``gitg``.
 
 Création du dépôt
 -----------------
 
 Initialise la gestion de version dans un répertoire
-en créant le sous-répertoire ``.git``.
-
-Trois méthodes :
-
-* *Git Gui > Créer un nouveau dépôt*
-* option *Git Init Here* du menu contextuel\ `*`:sup:
-* ligne de commande\ `*`:sup:\ ::
+en créant le sous-répertoire ``.git``::
 
   $ git init
-
-`*`:sup:\ : depuis le répertoire concerné
-
 
 .. index:: commiter
 
@@ -340,21 +328,7 @@ Notez qu'en cas de problème, il est possible de corriger un commit
  (tant qu'il n'a pas été partagé avec d'autres collaborateurs), 
  mais nous étudierons cela plus tard. 
 
-Depuis l'interface graphique
-````````````````````````````
 
-.. figure:: _static/gui-commit-annot.*
-   :class: fill
-
-.. note::
-
-   Les commandes pour changer le statut (indexé ou non) des fichiers modifiés
-   sont dans le menu *Commit*.
-   
-.. index:: git add, git reset, git status, git diff, git commit
-
-En ligne de commande
-````````````````````
 
 Ajouter un fichier dans l'index ::
 
@@ -366,8 +340,8 @@ Retirer un fichier de l'index ::
 
 Pour voir l'état des modifications en cours ::
 
-  $ git status    # résumé (volet de gauche de Git Gui)
-  $ git diff      # détail (volet de droite de Git Gui)
+  $ git status
+  $ git diff
 
 Pour commiter les modifications indexées ::
 
@@ -380,30 +354,21 @@ Pour commiter les modifications indexées ::
 Consulter l'historique
 ----------------------
 
-* *Git Gui > Dépôt > Voir l'historique de toutes les branches*
-
-  (cf. figure suivante)
-
-* ligne de commande :
-
   - afficher la liste des commits ::
 
       $ git log
 
     (avec l'identifiant de chaque commit)
 
+.. figure:: _static/git-log-annot.png
+   :width: 50%
+
+_
   - afficher le détail d'un commit particulier ::
 
       $ git show <id-commit>
 
-.. _gui-log:
-
-Depuis l'interface graphique
-````````````````````````````
-
-.. figure:: _static/gui-log-annot.*
-   :class: fill
-
+.. _git-log:
 
 
 Résumé des états possibles d'un fichier avec GIT
@@ -422,28 +387,36 @@ Résumé des états possibles d'un fichier avec GIT
 Exercice - Préambule
 ````````````````````
 
-Lorsque vous utilisez GIT Gui, il peut être utile de le configurer 
+Lorsque vous utilisez git, il peut être utile de le configurer
  pour préciser votre nom d'utilisateur et votre adresse email, 
- informations utilisées par GIT pour identifier vos commits. 
+ informations utilisées par GIT pour identifier vos commits ainsi que l'éditeur
+ de texte à utiliser pour vos commits.
 
-Pour cela, rendez-vous dans le menu Édition > Options,
- et renseignez les deux premiers champs (colonne de droite). 
+À faire une seule fois par machine que vous utilisez (paramètres globaux) ::
 
+  $ git config --global user.name "Your Name"
+  $ git config --global user.email "you@example.com"
+  $ git config --global core.editor "gedit"
+
+.. note::
+   Ces paramètres sont bien entendu à personaliser.
  
 .. rst-class:: exercice
 
 Exercice
 ````````
 
-#. Ouvrez GIT Gui et créez un nouveau dépôt. Créez un nouveau répertoire via l'interface de GIT Gui puis observez le contenu du répertoire créé. 
+#. Créez un nouveau dépôt git dans un dossier vide. Créez dans ce dernier un
+   nouveau répertoire (``mkdir``) puis observez le contenu du répertoire
+   créé.
 
 #. Avec un éditeur de texte, créez un fichier texte dans le répertoire, ajoutez du contenu à ce fichier, et sauvegardez-le.
 
-#. Dans l'interface GIT Gui, cliquez sur "Recharger modifs." Observez ce qui se passe. 
+#. Utilisez ``git status`` pour comprendre ce qui se passe.
 
 #. Entraînez-vous à faire des commits : 
    modifiez votre fichier texte, et sauvegardez-le,
-   utilisez l'interface de GIT Gui pour faire un commit des modifications,
+   utilisez la ligne de commande pour faire un commit des modifications,
    et répétez l'opération plusieurs fois pour bien comprendre le processus. 
 
 #. Ajoutez maintenant quelques fichiers dans votre répertoire (fichiers textes, images, etc.) et assurez-vous de bien commiter ces nouveaux fichiers. 
@@ -485,13 +458,7 @@ Dans les deux cas, vous risqueriez de perdre ces modifications
 Mise en œuvre
 +++++++++++++
 
-* *Git Gui > Branche > Charger (checkout)...*
-
-  - saisir une *Expression de révision*, puis
-  - valider en cliquant sur *Charger (checkout)*.
-
-* ligne de commande ::
-
+::
   $ git checkout <revision>
 
 Expressions de révision
@@ -509,10 +476,8 @@ Il existe plusieurs méthodes pour spécifier une révision à GIT :
 Identificateur
 --------------
 
-Chaque commit a un identificateur, affiché
-
-  - par l'interface graphique (cf. `figure <gui-log>`:ref:),
-  - par la commande ``git log``.
+Chaque commit a un identificateur, affiché par la commande ``git log``
+(cf. `figure <git-log>`:ref:).
 
 On peut spécifier une révision en utilisant
 
@@ -561,14 +526,6 @@ qui peut être exprimée de multiples manières ::
 Retour au présent
 +++++++++++++++++
 
-* *Git Gui > Branche > Charger (checkout)...*
-
-  - cocher le bouton radio *Branche locale*,
-  - sélectionner ``master`` dans la liste, puis
-  - valider en cliquant sur *Charger (checkout)*.
-
-* ligne de commande ::
-
   $ git checkout master
 
 NB : ceci est en fait un cas particulier de l'action `changer_de_branche`:ref:
@@ -584,8 +541,7 @@ Exercices
    #. Naviguez dans l'historique de votre dépôt créé précédemment 
       en remontant par exemple 1, 5, 30 minutes en arrière.
 
-   #. Lancez à nouveau GIT Gui et
-      `clonez <git-clone>`:ref: le repository suivant :
+   #. `clonez <git-clone>`:ref: (dans un autre dossier) le repository suivant :
 
    http://champin.net/enseignement/intro-git/historique-images
 
@@ -762,12 +718,7 @@ Mise en œuvre
 Afficher la liste des branches
 ------------------------------
 
-* Depuis l'interface graphique :
-
-  elle apparaît chaque fois qu'elle est nécessaire.
-
-* En ligne de commande ::
-
+::
     $ git branch
 
   Le nom de la branche courante apparaît précédé d'une étoile.
@@ -780,24 +731,7 @@ le sommet d'une *nouvelle* branche
 (qui pourra croître indépendamment des autres).
 
 
-Depuis l'interface graphique
-````````````````````````````
-
-*Git Gui > Branche > Créer...*
-
-  - on doit choisir un nom pour la nouvelle branche ;
-  - on peut choisir au sommet de quelle branche la nouvelle sera créée
-    (section « révision initiale ») ;
-  - on peut également y saisir une *Expression de révision* pour la créer sur
-    un commit arbitraire ;
-  - si on laisse cochée la case *Charger (checkout) après création* (en bas)
-    la nouvelle branche deviendra la branche courante.
-
-
 .. index:: git branch, git checkout
-
-En ligne de commande
-````````````````````
 
 Pour créer une nouvelle branche sur le commit courant ::
 
@@ -827,23 +761,7 @@ pour la mettre dans le même état que le sommet d'une branche.
   Pour pouvoir l'effectuer, il est nécessaire que
   la copie de travail ne contienne aucune modification non commitée.
 
-
-.. index:: git checkout
-
-Trois méthodes
-``````````````
-
-* *Git Gui > Branche > Charger (checkout)...*
-
-  - cocher le bouton radio *Branche locale*,
-  - sélectionner la branche souhaitée dans la liste, puis
-  - valider en cliquant sur *Charger (checkout)*.
-
-* Depuis la vue historique, menu contextuel sur une branche :
-  *Récupérer cette branche*
-
-* En ligne de commande ::
-
+::
    $ git checkout <branche>
 
 
@@ -933,14 +851,7 @@ ce commit devient le sommet de la branche destination.
 Deux méthodes
 `````````````
 
-* Git Gui > Fusionner > Fusion locale...*
-
-  - cocher le bouton radio *Branche locale*,
-  - sélectionner la branche à fusionner dans la branche actuelle,
-  - valider en cliquant sur *Fusionner*.
-
-* En ligne de commande ::
-
+::
    $ git merge <branche>
 
 
@@ -1114,18 +1025,10 @@ Le nouveau commit aura pour parents les sommets des branches fusionnées.
 Abandon
 -------
     
-On peut également décider d'abandonner la fusion :
-    
-* *Git Gui > Fusionner > Abandonner fusion...*
-    
-  - valider en cliquant sur *Oui*.
-    
-* En ligne de commande ::
+On peut également décider d'abandonner la fusion ::
     
   $ git merge --abort
 
-
-    
 .. rst-class:: exercice
 
 Exercice
@@ -1228,15 +1131,7 @@ Mise en œuvre
 Lier à un dépôt distant
 -----------------------
 
-À faire une fois pour toutes :
-
-* *Git Gui > Dépôt distant > Ajouter...*
-
-  - choisir un nom pour le dépôt distant,
-  - indiquer l'emplacement du dépôt distant,
-  - valider en cliquant sur *Ajouter*.
-
-* En ligne de commande ::
+À faire une fois pour toutes ::
 
   $ git remote add <nom> <emplacement>
 
@@ -1246,11 +1141,7 @@ Lier à un dépôt distant
 Récupérer les commits distants
 ------------------------------
 
-À répéter régulièrement :
-
-* *Git Gui > Dépôt distant > Récupérer de > <nom>*
-
-* En ligne de commande ::
+À répéter régulièrement ::
 
   $ git fetch <dépôt-distant>
 
@@ -1268,13 +1159,7 @@ Fusionner une branche de suivi
 
 Le principe est le même que pour la fusion entre branches locales.
 
-* Git Gui > Fusionner > Fusion locale...*
-
-  - cocher le bouton radio *Branche de suivi*,
-  - sélectionner la branche de suivi à fusionner dans la branche actuelle,
-  - valider en cliquant sur *Fusionner*.
-
-* En ligne de commande ::
+::
 
    $ git merge remotes/<branche-de-suivi>
 
@@ -1283,13 +1168,7 @@ Le principe est le même que pour la fusion entre branches locales.
 Publier des commits
 -------------------
 
-* Git Gui > Dépôts distants > Pousser...*
-
-  - sélectionner la branche locale contenant les commits à publier,
-  - sélectionner le dépôt distant vers lequel publier,
-  - valider en cliquant sur *Pousser*.
-
-* En ligne de commande ::
+::
 
   $ git push <dépôt-distant> <branche-locale>
 
@@ -1308,10 +1187,7 @@ Cette opération est en fait un raccourci, qui
   - le lie au dépôt distant sous le nom ``origin``, et
   - récupère immédiatement les commits de l'origine.
 
-On peut l'effectuer :
-
-* en lançant *Git Gui* hors d'une copie de travail, ou
-* en ligne de commande ::
+::
 
   $ git clone <emplacement> <répertoire-destination>
 
@@ -1352,14 +1228,7 @@ Organisation pair-à-pair
 Créer un dépôt public
 ---------------------
 
-* *Git Gui > Dépôt distant > Ajouter...*
-
-  - choisir le nom du dépôt distant,
-  - indiquer l'emplacement du dépôt public à créer,
-  - cocher le bouton radio *Initialiser un dépôt distant et pousser*
-  - valider en cliquant sur *Ajouter*.
-
-* En ligne de commande ::
+::
 
   $ git init --bare <emplacement>
   $ git remote add <nom> <emplacement>
@@ -1435,12 +1304,7 @@ il est possible de modifier (**amender**) le dernier commit créé.
 Deux méthodes
 -------------
 
-* Depuis l'interface graphique :
-
-  - cocher le bouton radio *Corriger dernier commit*
-    (au lieu de *Nouveau commit*).
-
-* En ligne de commande ::
+::
 
   $ git commit --amend
 
@@ -1460,12 +1324,7 @@ en re-créant les commits correspondants.
 
 .. index:: git rebase
 
-Une seule méthode
------------------
-
-* À priori pas intégré à *Git Gui*
-
-* En ligne de commande (depuis la branche à « rebaser ») ::
+Depuis la branche à « rebaser » ::
 
   $ git rebase <branche-destination>
 
