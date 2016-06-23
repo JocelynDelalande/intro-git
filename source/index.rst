@@ -624,7 +624,7 @@ Vous disposez normalement de votre clef SSH publique dans  *~/.ssh/id_rsa.pub*
 Cette clef servira à vous authentifier auprès des dépôts git distants hébergés
 sur framagit.
 
-Copier/coller son contenu dans votre profil : https://framagit.org/profile/key
+Copier/coller son contenu dans votre profil : https://framagit.org/profile/keys
 et sauvegarder.
 
 .. rst-class:: exercice
@@ -1423,7 +1423,7 @@ Il existe plusieurs sites permettant d'héberger et de partager vos projets GIT�
          :height: 2em
                   
 .. _BitBucket: https://bitbucket.org/
-.. _Framagit: https://git.framasoft.org/
+.. _Framagit: https://framagit.org/
 .. _GitLab: https://gitlab.com/
 .. _github: http://github.com/
 
