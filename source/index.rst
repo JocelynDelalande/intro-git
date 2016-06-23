@@ -15,7 +15,7 @@
      <a rel="author">
        <a href="http://iut.univ-lyon1.fr/">Dépt. Informatique IUT Lyon 1</a>
      </a> &
-       <a rel="author" href="jocelyn.delalande.fr">
+       <a rel="author" href="https://jocelyn.delalande.fr">
          Jocelyn Delalande
        </a>
 
