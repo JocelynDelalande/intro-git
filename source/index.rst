@@ -330,7 +330,22 @@ Pour voir l'état des modifications en cours ::
 
 Pour commiter les modifications indexées ::
 
-$ git commit
+  $ git commit
+
+.. nextslide::
+  
+  
+.. hint::
+
+   Pour déplacer/renommer des fichiers, le plus simple est de ne **pas** le
+   faire directement sur vos fichiers, mais d'utiliser ``git mv``.
+
+
+   De même la suppression est à réaliser avec ``git rm``.
+
+      Ces commandes :
+       - Opèrent la modification demandée sur la copie de travail ;
+       - et l'ajoutent directement à l'*index*.
 
 .. index:: git log, git show
 
