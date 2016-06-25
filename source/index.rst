@@ -330,9 +330,7 @@ Pour voir l'état des modifications en cours ::
 
 Pour commiter les modifications indexées ::
 
-  $ git commit    #ou
-  $ git commit -m "message de commit"
-
+$ git commit
 
 .. index:: git log, git show
 
