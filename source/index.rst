@@ -299,7 +299,7 @@ Commiter des modifications
 Une fois les fichiers modifiés et dans un état satisfaisant,
 vous pouvez les commiter.
 
-Remarque : lorsque vous effectuez un commit, il est essentiel
+Remarque : lorsque vous effectuez un commit, il est essentiel
  d'écrire un message accompagnant le commit. Ce message doit  
  être informatif quant à la nature des modifications que vous 
  êtes en train de commiter. 
