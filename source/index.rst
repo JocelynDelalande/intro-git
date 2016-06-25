@@ -357,14 +357,18 @@ Consulter l'historique
       $ git log
 
     .. image:: _static/git-log-annot.png
-       :width: 50%
+       :width: 75%
 
+.. nextslide::
 
-  - afficher le détail d'un commit particulier ::
+- afficher le détail d'un commit particulier ::
 
-      $ git show <id-commit>
+    $ git show <id-commit>
 
-.. _git-log:
+  .. image:: _static/git-show.png
+     :width: 75%
+
+.. _git-diff:
 
 
 Résumé des états possibles d'un fichier avec GIT
