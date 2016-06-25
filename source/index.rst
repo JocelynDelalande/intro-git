@@ -357,13 +357,8 @@ Consulter l'historique
 Résumé des états possibles d'un fichier avec GIT
 ------------------------------------------------
 
-.. figure:: _static/git-states.png
-   :width: 50%
-
-   Figure empruntée à git-scm.org_.
-
-.. _git-scm.org: http://git-scm.com/
-
+.. figure:: _static/git-states.*
+   :width: 100%
 
 .. rst-class:: exercice
 
@@ -1391,6 +1386,8 @@ __ http://pcottle.github.io/learnGitBranching/
 __ https://onlywei.github.io/explain-git-with-d3/#
 
 * Si vous voulez en savoir plus sur GIT, consultez son excellente documentation sur git-scm.org_ ainsi que les vidéos très instructives !
+
+  .. _git-scm.org: http://git-scm.com/
 
 Collaborer avec GIT
 +++++++++++++++++++
