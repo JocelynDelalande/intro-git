@@ -405,12 +405,10 @@ Exercice
 --------
 
 #. Créez un nouveau dépôt git dans un dossier vide. Créez dans ce dernier un
-   nouveau répertoire (``mkdir``) puis observez le contenu du répertoire
-   créé.
-
+   nouveau répertoire
 #. Avec un éditeur de texte, créez un fichier texte dans le répertoire, ajoutez du contenu à ce fichier, et sauvegardez-le.
 
-#. Utilisez ``git status`` pour comprendre ce qui se passe.
+#. Utilisez ``git status`` autant que nécessaire pour comprendre ce qui se passe.
 
 #. Entraînez-vous à faire des commits : 
    modifiez votre fichier texte, et sauvegardez-le,
