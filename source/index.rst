@@ -260,21 +260,6 @@ Ces modifications peuvent être :
 * modification de fichier
 * suppression de fichier
 
-État de l'index
-+++++++++++++++
-
-La commande ``git status`` permet de savoir où on en est :
-
-.. figure:: _static/historique3.png
-   :width: 100%
-
-.. note::
-   On remarque le code couleur :
-
-   * rouge : changements non indexés, non commités
-   * vert :  changements indexés, non commités
-
-
 Mise en œuvre
 +++++++++++++
 
@@ -369,6 +354,24 @@ Consulter l'historique
      :width: 75%
 
 .. _git-diff:
+
+
+Consulter l'index
+-----------------
+  
+La commande ``git status`` permet de savoir où on en est :
+
+.. figure:: _static/historique3.png
+   :width: 100%
+
+.. note::
+   On remarque le code couleur :
+
+   * rouge : changements non indexés, non commités
+   * vert :  changements indexés, non commités
+
+La commande ``git diff --cached`` permet de voir le détail les différences
+présentes à l'index.
 
 
 Résumé des états possibles d'un fichier avec GIT
