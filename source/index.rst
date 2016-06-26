@@ -510,7 +510,7 @@ Récupérer les commits distants
 
   $ git pull
   
-  ..
+..
      $ git fetch <dépôt-distant>
 
      
@@ -664,8 +664,6 @@ Exercice : collaborer (par binôme)
 On constitue des binômes, pour l'exemple, on considèrera que *bob* et *alice*
 sont les membres du binôme.
 
-.. rst-class:: exercice
-
 
 #. *bob* : donnez les droits d'accès *Développeur* au groupe de formation (dont
    *alice* fait partie) et communiquez à *alice* l'adresse du dépôt.
@@ -674,8 +672,10 @@ sont les membres du binôme.
 
       Menu préférences d'un dépôt.
 
-.. nextslide::
 .. rst-class:: exercice
+
+.. nextslide::
+
 
 2. *alice* :  *clonez* le dépôt de *bob*,  *commitez-y* quelques modifications.
 
