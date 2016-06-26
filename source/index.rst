@@ -694,8 +694,8 @@ sont les membres du binôme.
 
 .. _naviguer:
 
-Naviguer dans l'historique
-==========================
+BONUS Naviguer dans l'historique
+================================
 
 .. note::
    Cette section est ici pour référence mais ne sera pas traitée en cours.
