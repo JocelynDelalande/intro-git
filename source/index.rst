@@ -670,7 +670,7 @@ sont les membres du binôme.
 
 
 #. *bob* : donnez les droits d'accès *Développeur* au groupe de formation (dont
-   *alice* fait partie) et communiquez à *alice* l'adresse du dépôt.
+   *alice* fait partie) et communiquez à *alice* l'emplacement du dépôt distant.
 
    .. figure:: _static/gitlab-project-settings.png
 
