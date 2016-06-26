@@ -582,7 +582,7 @@ Types de collaborations
 
 La flexibilité de GIT permet de multiples formes d'organisation pour le travail collaboratif.
 
-On donne ici quelques exemples (non exhaustifs).
+Nous aborderons uniquement le mode en étoile, mais il en existe d'autres (notamment *pair à pair*)
 
 Organisation en étoile
 ----------------------
@@ -590,6 +590,7 @@ Organisation en étoile
 .. figure:: _static/collab_star.*
    :width: 90%
 
+..
 Organisation pair-à-pair
 ------------------------
 
