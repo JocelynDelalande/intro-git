@@ -552,6 +552,10 @@ Publier des commits
 .. _git-clone:
 .. index:: git clone, cloner
 
+Si vous venez d'ajouter un dépôt distant à votre dépôt local, vous aurez besoin de faire, la première fois ::
+
+     $ git push -u <dépôt> master
+
 Cloner un dépôt distant
 -----------------------
 
