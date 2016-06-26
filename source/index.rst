@@ -456,7 +456,7 @@ avec lesquels il pourra partager des commits.
 Un dépôt distant a un emplacement qui peut être :
 
 * un répertoire (sur un disque local ou partagé), ou
-* une URL (par exemple http://github.com/JocelynDelalande/intro-git).
+* une URL (par exemple https://github.com/JocelynDelalande/intro-git).
 
 
 .. index:: branche; de suivi, remote-tracking branch
@@ -637,7 +637,7 @@ Vous disposez normalement de votre clef SSH publique dans  *~/.ssh/id_rsa.pub*
 Cette clef servira à vous authentifier auprès des dépôts git distants hébergés
 sur framagit.
 
-Copier/coller son contenu dans votre profil : https://framagit.org/profile/key
+Copier/coller son contenu dans votre profil : https://framagit.org/profile/keys
 et sauvegarder.
 
 .. rst-class:: exercice
@@ -645,9 +645,9 @@ et sauvegarder.
 Exercice : utiliser un dépôt distant
 ------------------------------------
 
-#. Sur votre compte *framagit*, créez un nouveau dépôt privé nommé tp-intro-git,
-   bien noter l'URL du dépôt
-   git distant (de la forme ``https://framagit.org/<login>/tp-intro-git.git``).
+#. Sur votre compte *framagit*, créez un nouveau dépôt privé nommé ``tp-intro-git``,
+   bien noter l'emplacement du dépôt
+   git distant (de la forme ``git@framagit.org:<login>/tp-intro-git.git``).
 
 #. Prenez le dépôt local avec lequel vous avez déjà travaillé dans la séance,
    et liez ce dépôt à votre dépôt distant (*remote*) fraîchement créé,
