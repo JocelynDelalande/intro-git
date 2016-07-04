@@ -385,10 +385,10 @@ Résumé des états possibles d'un fichier avec GIT
 Exercice - Préambule
 --------------------
 
-Lorsque vous utilisez git, il peut être utile de le configurer
- pour préciser votre nom d'utilisateur et votre adresse email, 
- informations utilisées par GIT pour identifier vos commits ainsi que l'éditeur
- de texte à utiliser pour vos commits.
+Lorsque vous utilisez git pour la première fois sur votre machine, il peut être
+ utile de le configurer pour préciser votre nom d'utilisateur et votre adresse
+ email, informations utilisées par GIT pour identifier vos commits ainsi que
+ l'éditeur de texte à utiliser pour vos commits.
 
 À faire une seule fois par machine que vous utilisez (paramètres globaux) ::
 
