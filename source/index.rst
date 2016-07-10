@@ -285,18 +285,17 @@ Une fois les fichiers modifiés et dans un état satisfaisant,
 vous pouvez les commiter.
 
 Remarque : lorsque vous effectuez un commit, il est essentiel
- d'écrire un message accompagnant le commit. Ce message doit  
- être informatif quant à la nature des modifications que vous 
- êtes en train de commiter. 
+d'écrire un message accompagnant le commit. Ce message doit
+être informatif quant à la nature des modifications que vous
+êtes en train de commiter.
 
-Par exemple, *blip* est un **mauvais** message de commit, mais 
- *Correction des fautes d'orthographe dans la doc technique* 
- est un **bon** message de commit. 
+Par exemple, *blip* est un **mauvais** message de commit, mais
+*Correction des fautes d'orthographe dans la doc technique*
+est un **bon** message de commit.
 
 Notez qu'en cas de problème, il est possible de corriger un commit
- (tant qu'il n'a pas été partagé avec d'autres collaborateurs), 
- mais nous étudierons cela plus tard. 
-
+(tant qu'il n'a pas été partagé avec d'autres collaborateurs),
+mais nous étudierons cela plus tard.
 
 .. nextslide::
 
