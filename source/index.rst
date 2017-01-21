@@ -114,6 +114,16 @@ Avertissement
    :width: 20%
 
 
+Objectifs
+=========
+
+À l'issue de ce cours
++++++++++++++++++++++
+
+- Savoir de quoi il retourne
+- Versionner son code dans un dépôt local
+- Collaborer à plusieurs sur un dépôt distant
+
 
 Historique des |VCS|
 ====================
