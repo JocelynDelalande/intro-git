@@ -1443,7 +1443,7 @@ Il existe plusieurs sites permettant d'hÃ©berger et de partager vos projets GITÂ
          :height: 2em
                   
 .. _BitBucket: https://bitbucket.org/
-.. _Framagit: https://git.framasoft.org/
+.. _Framagit: https://framagit.org/
 .. _GitLab: https://gitlab.com/
 .. _github: http://github.com/
 
