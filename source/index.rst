@@ -419,13 +419,23 @@ Lorsque vous utilisez git pour la première fois sur votre machine, il peut êtr
 Exercice
 --------
 
+.. hint::
+   Utilisez ``git status`` autant que nécessaire pour comprendre ce qui se
+   passe.
+
+.. rst-class:: exercice
+
 #. Créez un nouveau dépôt git dans un dossier vide. Créez dans ce dernier un
    nouveau répertoire
-#. Avec un éditeur de texte, créez un fichier texte dans le répertoire, ajoutez du contenu à ce fichier, et sauvegardez-le.
 
-#. Utilisez ``git status`` autant que nécessaire pour comprendre ce qui se passe.
+#. Avec un éditeur de texte, créez un fichier texte dans le répertoire, ajoutez
+   du contenu à ce fichier, et sauvegardez-le.
 
-#. Entraînez-vous à faire des commits : 
+#. Commitez ce fichier
+
+.. nextslide::
+
+4. Entraînez-vous à faire des commits :
    modifiez votre fichier texte, et sauvegardez-le,
    utilisez la ligne de commande pour faire un commit des modifications,
    et répétez l'opération plusieurs fois pour bien comprendre le processus. 
