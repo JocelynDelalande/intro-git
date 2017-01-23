@@ -209,7 +209,8 @@ au répertoire, ses fichiers et leur contenu.
 Le dépôt lui-même est contenu dans un répertoire caché ``.git``.
 
 À côté du dossier ``.git`` on a généralement une vue des fichiers contenus à
-un certain point de l'historique, que l'on peut observer ou modifier.
+un certain point de l'historique, que l'on peut observer ou modifier (cf *copie
+de travail*).
 
 .. note::
    On ne modifie jamais directement le contenue du ``.git``, on le manipule, à
