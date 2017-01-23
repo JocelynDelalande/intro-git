@@ -279,6 +279,11 @@ Mise en œuvre
    existe également différentes interfaces graphiques plus ou moins complètes
    pour manipuler des dépôts git telles ``gitk`` ou ``gitg``.
 
+.. hint:: Pour que ``git`` comprenne que vous souhaitez manipuler un dépôt, il
+   convient que votre *répertoire courant* soit le répertoire parent du
+   ``.git/`` de ce dépôt, ou bien un des sous-répertoires de ce répertoire
+   parent.
+
 Création du dépôt
 -----------------
 
