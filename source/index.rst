@@ -518,6 +518,9 @@ Mise en œuvre
 Lier à un dépôt distant
 -----------------------
 
+.. hint::
+   Le dépôt distant doit avoir été préalablement initialisé.
+
 À faire une fois pour toutes ::
 
   $ git remote add <nom> <emplacement>
