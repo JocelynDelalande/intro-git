@@ -624,13 +624,13 @@ Organisation en étoile
    :width: 90%
 
 ..
-Organisation pair-à-pair
-------------------------
+   Organisation pair-à-pair
+   ------------------------
 
-.. figure:: _static/collab_p2p.*
-   :width: 90%
+   .. figure:: _static/collab_p2p.*
+      :width: 90%
 
-.. index:: git init, git remote, git push
+   .. index:: git init, git remote, git push
 
 ..
    Créer un dépôt public
