@@ -1491,11 +1491,6 @@ Il existe plusieurs sites permettant d'héberger et de partager vos projets GIT�
 .. _GitLab: https://gitlab.com/
 .. _github: http://github.com/
 
-dont un hébergé par l'IUT :
-
-.. rst-class:: logos
-
-   http://iutdoua-git.univ-lyon1.fr/
 
 N'hésitez pas à visiter ces sites et à explorer les projets qui s'y trouvent...
 C'est une grande source d'inspiration.
