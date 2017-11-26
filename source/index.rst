@@ -1078,22 +1078,27 @@ Un dépôt distant a un emplacement qui peut être :
 
 .. index:: branche; de suivi, remote-tracking branch
 
-..
-   Branche de suivi
-   ----------------
 
-   Pour chaque branche d'un dépôt distant,
-   GIT crée dans le dépôt local une branche spéciale appelée **branche de suivi**
-   (en anglais `remote-tracking branch`:eng:). Leur nom est de la forme :
+Vue d'ensemble
+++++++++++++++
 
-     ``remotes/<dépôt-distant>/<branche>``
+.. figure:: _static/git-states2.*
+   :width: 100%
 
+Branche de suivi
+----------------
+Pour chaque branche d'un dépôt distant,
+GIT crée dans le dépôt local une branche spéciale appelée **branche de suivi**
+(en anglais `remote-tracking branch`:eng:).
 
-   Cette branche reflète l'état de la branche distante correspondante ;
-   elle n'a pas vocation a être modifiée directement.
+Leur nom est de la forme :
+  ``<dépôt-distant>/<branche>``
 
-   Elle peut en revanche être *fusionnée* à une branche locale,
-   afin d'y intégrer les modifications faites par d'autres.
+Cette branche reflète l'état de la branche distante correspondante ;
+elle n'a pas vocation a être modifiée directement.
+
+Elle peut en revanche être *fusionnée* à une branche locale,
+afin d'y intégrer les modifications faites par d'autres.
 
 
 Mise en œuvre
@@ -1144,17 +1149,6 @@ Récupérer les commits distants
 
 .. index:: git merge
 
-..
-   Fusionner une branche de suivi
-   ------------------------------
-
-   Le principe est le même que pour la fusion entre branches locales.
-
-   ::
-
-      $ git merge remotes/<branche-de-suivi>
-
-   .. index:: git push, pousser
 
 Publier des commits
 -------------------
