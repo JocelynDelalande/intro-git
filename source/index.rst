@@ -422,17 +422,20 @@ Lorsque vous utilisez git pour la première fois sur votre machine, il peut êtr
 Exercice
 --------
 
-.. hint::
-   Utilisez ``git status`` autant que nécessaire pour comprendre ce qui se
-   passe.
+.. hint:: Utilisez ``git status``, ``git diff`` et ``git log`` autant que
+          nécessaire à chaque étape pour comprendre ce qui se passe.
 
 .. rst-class:: exercice
 
 #. Créez un nouveau répertoire, et faites-en un dépôt GIT.
 
-#. Ajoutez un fichier HTML dans ce répertoire,
+#. Ajoutez un fichier HTML nommé `cv.html` dans ce répertoire,
    contenant une brève description de vous
    (ou de n'importe quel autre sujet qui vous intéresse).
+   Commitez ces changements.
+
+#. Modifiez le texte contenu dans ce fichier HTML (exemple: ajoutez une section
+   avec un bref contenu)
    Commitez ces changements.
 
 #. Ajoutez maintenant une feuille de style *externe* à votre fichier HTML,
@@ -441,6 +444,19 @@ Exercice
    Commitez ces changements.
 
 #. Affichez l'historique de vos changements
+
+#. Ajoutez une image rigolotte à votre CV,
+   Commitez ces changements. (NB: ce commit concerne normalement deux fichiers)
+
+#. Décidez que finalement une image rigolotte n'est pas la bienvenue dans un
+   document professionel… supprimez-là.
+   Commitez ces changements.
+
+#. Renommez votre fichier `cv.html` en `index.html`
+   Commitez ces changements.
+
+#. BONUS: Documentez-vous sur la commande `git revert` et expérimentez son
+   usage pour défaire les modifications d'un de vos commits précédents.
 
 ..   * Créer votre projet GIT pour gérer votre CV en HTML
 ..   * Faites plusieurs commit (par exemple, après avoir rempli chaque section)
