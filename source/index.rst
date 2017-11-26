@@ -1122,6 +1122,11 @@ Lier à un dépôt distant
 
   $ git remote add <nom> <emplacement>
 
+.. note:: Le ``<nom>`` est à votre guise, il est à voir comme un
+          nom de variable permetant de référer à ce dépôt distant dans d'autres
+          commandes. La convention veut que si vous n'avez qu'un dépôt distant,
+          il s'appelle ``origin``.
+
 On peut lister les dépôts distants ::
 
   $ git remote -v
@@ -1162,22 +1167,25 @@ Publier des commits
 .. note::
    Lorsqu'on utilise plusieurs *branches* et plusieurs *remotes* on précise ce
    qu'on pousse et où on le pousse ::
+
      $ git push <dépôt-distant> <branche-locale>
 .. _git-clone:
 .. index:: git clone, cloner
 
-Si vous venez d'ajouter un dépôt distant à votre dépôt local, vous aurez besoin de faire, la première fois ::
+Si vous venez de lier un dépôt distant à votre dépôt local, vous aurez besoin
+de faire, la première fois que vous souhaitez *pusher* sur une branche ::
 
-     $ git push -u <dépôt> master
+     $ git push -u <dépôt-distant> master
 
 Cloner un dépôt distant
 -----------------------
 
 Cette opération est en fait un raccourci, qui
 
-  - crée un nouveau dépôt local,
-  - le lie au dépôt distant sous le nom ``origin``, et
-  - récupère immédiatement les commits de l'origine.
+  - crée un nouveau dépôt local, (équivalent de ``git init``)
+  - le lie au dépôt distant sous le nom ``origin`` (équivalent de ``git remote
+    add ...``)
+  - récupère immédiatement les commits de l'origine (équivalent de ``git pull``)
 
 ::
 
