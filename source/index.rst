@@ -1306,6 +1306,78 @@ sont les membres du binôme.
    son dernier commit dans votre fichier de rendu*).
 
 
+Travailler avec des branches distantes
+--------------------------------------
+
+Vous pouvez lister les branches locales avec ::
+
+  $ git branch
+
+
+Lister les branches distantes avec ::
+
+   $ git branch  --remote
+
+
+Et voir quelle branche locale est liée à une branche de suivi avec::
+
+  $ git branch -vv
+
+
+Vous pouvez récupérer/mettre à jour les branches de suivi avec ::
+
+  $ git fetch
+
+
+(cela ne touchera pas à vos branches locales)
+
+Pour mémoire, ``git pull`` fait la même chose mais met ensuite la branche
+locale courante à jour. (fusionne la branche de suivi correspondante).
+
+
+Fusionner une branche de suivi
+------------------------------
+
+Le principe est le même que pour la fusion entre branches locales.
+
+::
+
+   $ git merge <branche-de-suivi>
+
+.. index:: git push, pousser
+
+
+
+Exercices (collaboration, suite BONUS)
+--------------------------------------
+
+#. *alice* crée une branche locale, y ajoute un commit, et pousse cette branche
+sur le dépôt distant de *bob*.
+#. *bob* récupère cette branche, la fusionne dans la branche *master*, et pousse
+le résultat dans son dépôt distant.
+
+
+BONUS : Le .gitignore
+====================
+
+Parfois, vous avez besoin de ne pas inclure certains fichiers présents dans le
+dossier au dépôt git, particulièrement quand vous *partagez* via un dépôt
+distant.
+
+Typiquement, il s'agit de fichiers de configuration, ou bien de secrets (mots
+de passe…).
+
+Il est possible de lister ces fichiers dans un fichir texte nommé
+**.gitignore**, placé à la racine de votre copie de travail (à côté du dossier
+*.git*). Il faut commiter le *.gitignore*.
+
+Exemple de contenu (un fichier à ignorer par ligne, les "*" sont des jokers)::
+
+  secret-password
+  settings.cfg
+  *.tmp
+
+
 BONUS : Ré-écrire l'histoire
 ============================
 
