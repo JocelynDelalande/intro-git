@@ -558,16 +558,15 @@ Exercice
 --------
 
 #. Naviguez dans l'historique du dépôt créé à l'exercice précédent,
-   pour afficher l'avant-dernière version de votre fichier HTML.
+   pour examiner son avant-dernière version. (utilisez la syntaxe *relative*)
 
-#. Affichez ensuite l'antépénultième (avant-avant-dernière) version.
-
-#. Affichez ensuite la deuxième version de votre fichier HTML.
-
-#. Affichez ensuite la première version de votre fichier HTML.
+#. Examinez ensuite le dépôt dans l'état où il était juste quand vous veniez
+   d'ajouter l'image rigolotte. (utilisez l'*identifiant* de commit)
 
 #. Revenez au « présent » (*i.e.* la dernière version).
 
+#. BONUS: Il est possible d'indiquer à ``git checkout`` une date (ex: « le 2 mai ») ou un point
+   dans le temps (ex: « il y a deux heures »), cherchez comment !
 
 Entractes
 +++++++++
