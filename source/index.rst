@@ -414,7 +414,7 @@ Lorsque vous utilisez git pour la première fois sur votre machine, il peut êtr
 
   $ git config --global user.name "Your Name"
   $ git config --global user.email "you@example.com"
-  $ git config --global core.editor "gedit"
+  $ git config --global core.editor "xed"
 
 .. note::
    Ces paramètres sont bien entendu à personaliser.
