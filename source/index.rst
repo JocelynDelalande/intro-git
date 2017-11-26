@@ -358,7 +358,7 @@ Consulter l'historique
 
       $ git log
 
-    .. image:: _static/git-log-annot.png
+    .. figure:: _static/git-log-annot.png
        :width: 75%
 
 .. nextslide::
@@ -367,7 +367,7 @@ Consulter l'historique
 
     $ git show <id-commit>
 
-  .. image:: _static/git-show.png
+  .. figure:: _static/git-show.png
      :width: 75%
 
 .. _git-diff:
