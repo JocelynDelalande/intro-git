@@ -445,7 +445,9 @@ Exercice
    référencé par une balise ``<link>``).
    Commitez ces changements.
 
-#. Affichez l'historique de vos changements
+.. nextslide::
+
+5. Affichez l'historique de vos changements
 
 #. Ajoutez une image rigolotte à votre CV,
    Commitez ces changements. (NB: ce commit concerne normalement deux fichiers)
@@ -490,8 +492,8 @@ Dans les deux cas, vous risqueriez de perdre ces modifications
 
 Mise en œuvre
 +++++++++++++
-
 ::
+
   $ git checkout <revision>
 
 Expressions de révision
@@ -542,6 +544,7 @@ Retour au présent
 +++++++++++++++++
 
 ::
+
   $ git checkout master
 
 NB : ceci est en fait un cas particulier de l'action `changer_de_branche`:ref:
@@ -735,6 +738,7 @@ Afficher la liste des branches
 ------------------------------
 
 ::
+
     $ git branch
 
   Le nom de la branche courante apparaît précédé d'une étoile.
@@ -898,6 +902,7 @@ Mise en œuvre
 `````````````
 
 ::
+
    $ git merge <branche>
 
 
@@ -1042,7 +1047,6 @@ pour :
 
 Les fichiers binaires ne sont pas modifiés.
 
-
 .. index:: git commit
 
 .. _résolution:
@@ -1097,21 +1101,19 @@ Notions
 +++++++
 
 * Lorsqu'on travaille à plusieurs,
-
-  - chacun possède une copie des fichiers.
+   - chacun possède une copie des fichiers.
 
 * Lorsqu'on travaille à plusieurs **avec GIT**,
-
-  - chacun possède une copie des fichiers **et du dépôt**.
+   - chacun possède une copie des fichiers **et du dépôt**.
 
 * On ne s'échange plus les fichiers individuellement,
-
-  - mais des **commits** (donc des états *cohérents* de l'ensemble des fichiers).
+   - mais des **commits** (donc des états *cohérents* de l'ensemble des fichiers).
 
 * On met en commun en fusionnant les branches.
 
 
 .. index:: dépôt; distant, repository; remote
+
 
 Dépôt distant
 -------------
@@ -1339,8 +1341,10 @@ On constitue des binômes, pour l'exemple, on considèrera que *bob* et *alice*
 sont les membres du binôme.
 
 
-#. *bob* : donnez les droits d'accès *Développeur* au groupe de formation (dont
-   *alice* fait partie) et communiquez à *alice* l'emplacement du dépôt distant.
+#. *bob*, donnez les droits d'accès suivants :
+    - *Master* à *alice*
+    - *Developper* au groupe de formation (onglet *« Share with group »*) et
+      communiquez à *alice* l'emplacement du dépôt distant.
 
    .. figure:: _static/gitlab-project-settings.png
 
@@ -1434,7 +1438,6 @@ en re-créant les commits correspondants.
 Depuis la branche à « rebaser » ::
 
   $ git rebase <branche-destination>
-
 
 BONUS : Pour aller plus loin
 ============================
