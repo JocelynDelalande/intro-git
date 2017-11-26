@@ -124,7 +124,9 @@ Objectifs
 
 - Savoir de quoi il retourne
 - Versionner son code dans un dépôt local
-- Collaborer à plusieurs sur un dépôt distant
+- Utiliser les branches
+- Résoudre les conflits d'édition
+- Collaborer à plusieurs via un dépôt distant
 
 
 Historique des |VCS|
@@ -463,285 +465,10 @@ Exercice
 ..   * Ajoutez des fichiers (par exemple, une photo, une feuille de style)
 
 
-Collaboration
-=============
-
-Notions
-+++++++
-
-* Lorsqu'on travaille à plusieurs,
-
-  - chacun possède une copie des fichiers.
-
-* Lorsqu'on travaille à plusieurs **avec GIT**,
-
-  - chacun possède une copie des fichiers **et du dépôt**.
-
-* On ne s'échange plus les fichiers individuellement,
-
-  - mais des **commits** (donc des états *cohérents* de l'ensemble des fichiers).
-
-* On met en commun en fusionnant les branches.
-
-
-.. index:: dépôt; distant, repository; remote
-
-Dépôt distant
--------------
-
-Un dépôt peut être lié à d'autres dépôts dits **distants**
-(en anglais `remote repository`:eng:),
-avec lesquels il pourra partager des commits.
-
-Un dépôt distant a un emplacement qui peut être :
-
-* un répertoire (sur un disque local ou partagé), ou
-* une URL (par exemple https://github.com/JocelynDelalande/intro-git.git).
-
-
-.. index:: branche; de suivi, remote-tracking branch
-
-..
-   Branche de suivi
-   ----------------
-
-   Pour chaque branche d'un dépôt distant,
-   GIT crée dans le dépôt local une branche spéciale appelée **branche de suivi**
-   (en anglais `remote-tracking branch`:eng:). Leur nom est de la forme :
-
-     ``remotes/<dépôt-distant>/<branche>``
-
-
-   Cette branche reflète l'état de la branche distante correspondante ;
-   elle n'a pas vocation a être modifiée directement.
-
-   Elle peut en revanche être *fusionnée* à une branche locale,
-   afin d'y intégrer les modifications faites par d'autres.
-
-
-Mise en œuvre
-+++++++++++++
-
-.. contents::
-   :local:
-   :depth: 0
-   :backlinks: none
-
-
-.. index:: git remote
-
-Lier à un dépôt distant
------------------------
-
-.. hint::
-   Le dépôt distant doit avoir été préalablement initialisé.
-
-À faire une fois pour toutes ::
-
-  $ git remote add <nom> <emplacement>
-
-On peut lister les dépôts distants ::
-
-  $ git remote -v
-
-.. index:: git fetch
-
-Récupérer les commits distants
-------------------------------
-
-À répéter régulièrement ::
-
-  $ git pull
-
-..
-     $ git fetch <dépôt-distant>
-
-
-..
-   .. hint::
-
-      Les branches de suivi sont créées par le ``fetch``.
-
-      Ainsi, si de nouvelles branches sont créées dans le dépôt distant,
-      les branches de suivi correspondantes seront également ajoutées.
-
-.. index:: git merge
-
-..
-   Fusionner une branche de suivi
-   ------------------------------
-
-   Le principe est le même que pour la fusion entre branches locales.
-
-   ::
-
-      $ git merge remotes/<branche-de-suivi>
-
-   .. index:: git push, pousser
-
-Publier des commits
--------------------
-
-::
-
-  $ git push
-
-.. hint:: Suppose d'avoir des droits en écriture sur le dépôt distant.
-
-.. note::
-   Lorsqu'on utilise plusieurs *branches* et plusieurs *remotes* on précise ce
-   qu'on pousse et où on le pousse ::
-     $ git push <dépôt-distant> <branche-locale>
-.. _git-clone:
-.. index:: git clone, cloner
-
-Si vous venez d'ajouter un dépôt distant à votre dépôt local, vous aurez besoin de faire, la première fois ::
-
-     $ git push -u <dépôt> master
-
-Cloner un dépôt distant
------------------------
-
-Cette opération est en fait un raccourci, qui
-
-  - crée un nouveau dépôt local,
-  - le lie au dépôt distant sous le nom ``origin``, et
-  - récupère immédiatement les commits de l'origine.
-
-::
-
-  $ git clone <emplacement> <répertoire-destination>
-
-Remarque : le clone peut se faire selon plusieurs protocoles : HTTPS, SSH, etc.
-
-.. note:: Problème depuis certains réseaux
-
-  Si vous rencontrez des problèmes pour cloner un dépôt,
-  cela peut venir d'une mauvaise configuration du *proxy*.
-  Dans ``git bash``, tapez les deux commandes suivantes ::
-
-    $ git config --global http.proxy http://proxy.univ-lyon1.fr:3128
-    $ git config --global https.proxy https://proxy.univ-lyon1.fr:3128
-
-  puis tentez à nouveau.
-
-Types de collaborations
-+++++++++++++++++++++++
-
-La flexibilité de GIT permet de multiples formes d'organisation pour le travail collaboratif.
-
-Nous aborderons uniquement le mode en étoile, mais il en existe d'autres (notamment *pair à pair*)
-
-Organisation en étoile
-----------------------
-
-.. figure:: _static/collab_star.*
-   :width: 90%
-
-..
-   Organisation pair-à-pair
-   ------------------------
-
-   .. figure:: _static/collab_p2p.*
-      :width: 90%
-
-   .. index:: git init, git remote, git push
-
-..
-   Créer un dépôt public
-   ---------------------
-
-   ::
-
-     $ git init --bare <emplacement>
-     $ git remote add <nom> <emplacement>
-     $ git push <nom> HEAD
-
-   .. note::
-
-      L'emplacement choisi doit évidemment être accessible à d'autres,
-      par exemple sur un disque partagé.
-
-      La procédure d'initialisation du dépôt peut-être différente
-      si on utilise un service en réseau (par exemple github_).
-
-   .. _github: http://github.com/
-
-
-.. rst-class:: exercice
-
-
-Exercices
-+++++++++
-
-.. rst-class:: exercice
-
-Exercice : préambule
---------------------
-
-Nous supposons que vous disposez d'un compte sur https://framagit.org
-
-Vous disposez normalement de votre clef SSH publique dans  *~/.ssh/id_rsa.pub*
-
-Cette clef servira à vous authentifier auprès des dépôts git distants hébergés
-sur framagit.
-
-Copier/coller son contenu dans votre profil : https://framagit.org/profile/keys
-et sauvegarder.
-
-.. rst-class:: exercice
-
-Exercice : utiliser un dépôt distant
-------------------------------------
-
-#. Sur votre compte *framagit*, créez un nouveau dépôt privé nommé ``tp-intro-git``,
-   bien noter l'emplacement du dépôt
-   git distant (de la forme ``git@framagit.org:<login>/tp-intro-git.git``).
-
-#. Prenez le dépôt local avec lequel vous avez déjà travaillé dans la séance,
-   et liez ce dépôt à votre dépôt distant (*remote*) fraîchement créé,
-
-#. Poussez-y vos commits.
-
-.. rst-class:: exercice
-
-Exercice : collaborer (par binôme)
-----------------------------------
-
-On constitue des binômes, pour l'exemple, on considèrera que *bob* et *alice*
-sont les membres du binôme.
-
-
-#. *bob* : donnez les droits d'accès *Développeur* au groupe de formation (dont
-   *alice* fait partie) et communiquez à *alice* l'emplacement du dépôt distant.
-
-   .. figure:: _static/gitlab-project-settings.png
-
-      Menu préférences d'un dépôt.
-
-.. rst-class:: exercice
-
-.. nextslide::
-
-
-2. *alice* :  *clonez* le dépôt de *bob*,  *commitez-y* quelques modifications.
-
-#. *alice & bob* : Pourquoi ne sont-elles pas immédiatement visibles de bob ?
-
-#. *alice & bob* : Remédiez à ce problème
-
-#. *bob* : récupèrez les modifications d'*alice*
-#. *bob* : poussez à votre tour quelques modifications
-#. *alice* : récupérez les modifications de *bob* (*et indiquer la référence de
-   son dernier commit dans votre fichier de rendu*).
-
 .. _naviguer:
 
-BONUS Naviguer dans l'historique
+Naviguer dans l'historique
 ================================
-
-.. note::
-   Cette section est ici pour référence mais ne sera pas traitée en cours.
 
 Motivation
 ++++++++++
@@ -854,12 +581,8 @@ qui seraient impraticables avec une gestion « manuelle » de l'historique.
   - mais s'avèrent vite indispensables quand on y a pris goût.
 
 
-BONUS : Branches
-================
-
-.. note::
-   Cette section est ici pour référence mais ne sera pas traitée en cours.
-
+Branches
+========
 
 Motivation
 ++++++++++
@@ -1201,12 +924,8 @@ Exercice
 
 .. _conflits:
 
-BONUS : Gérer les conflits
+Gérer les conflits
 ==========================
-
-.. note::
-   Cette section est ici pour référence mais ne sera pas traitée en cours.
-
 
 Motivation
 ++++++++++
@@ -1370,6 +1089,278 @@ Exercice
    constatez comment le fichier ``conflit.txt`` a été modifié,
    et résolvez le conflit.
 
+
+Collaboration
+=============
+
+Notions
++++++++
+
+* Lorsqu'on travaille à plusieurs,
+
+  - chacun possède une copie des fichiers.
+
+* Lorsqu'on travaille à plusieurs **avec GIT**,
+
+  - chacun possède une copie des fichiers **et du dépôt**.
+
+* On ne s'échange plus les fichiers individuellement,
+
+  - mais des **commits** (donc des états *cohérents* de l'ensemble des fichiers).
+
+* On met en commun en fusionnant les branches.
+
+
+.. index:: dépôt; distant, repository; remote
+
+Dépôt distant
+-------------
+
+Un dépôt peut être lié à d'autres dépôts dits **distants**
+(en anglais `remote repository`:eng:),
+avec lesquels il pourra partager des commits.
+
+Un dépôt distant a un emplacement qui peut être :
+
+* un répertoire (sur un disque local ou partagé), ou
+* une URL (par exemple https://github.com/JocelynDelalande/intro-git.git).
+
+
+.. index:: branche; de suivi, remote-tracking branch
+
+..
+   Branche de suivi
+   ----------------
+
+   Pour chaque branche d'un dépôt distant,
+   GIT crée dans le dépôt local une branche spéciale appelée **branche de suivi**
+   (en anglais `remote-tracking branch`:eng:). Leur nom est de la forme :
+
+     ``remotes/<dépôt-distant>/<branche>``
+
+
+   Cette branche reflète l'état de la branche distante correspondante ;
+   elle n'a pas vocation a être modifiée directement.
+
+   Elle peut en revanche être *fusionnée* à une branche locale,
+   afin d'y intégrer les modifications faites par d'autres.
+
+
+Mise en œuvre
++++++++++++++
+
+.. contents::
+   :local:
+   :depth: 0
+   :backlinks: none
+
+
+.. index:: git remote
+
+Lier à un dépôt distant
+-----------------------
+
+.. hint::
+   Le dépôt distant doit avoir été préalablement initialisé.
+
+À faire une fois pour toutes ::
+
+  $ git remote add <nom> <emplacement>
+
+On peut lister les dépôts distants ::
+
+  $ git remote -v
+
+.. index:: git fetch
+
+Récupérer les commits distants
+------------------------------
+
+À répéter régulièrement ::
+
+  $ git pull
+
+..
+     $ git fetch <dépôt-distant>
+
+
+..
+   .. hint::
+
+      Les branches de suivi sont créées par le ``fetch``.
+
+      Ainsi, si de nouvelles branches sont créées dans le dépôt distant,
+      les branches de suivi correspondantes seront également ajoutées.
+
+.. index:: git merge
+
+..
+   Fusionner une branche de suivi
+   ------------------------------
+
+   Le principe est le même que pour la fusion entre branches locales.
+
+   ::
+
+      $ git merge remotes/<branche-de-suivi>
+
+   .. index:: git push, pousser
+
+Publier des commits
+-------------------
+
+::
+
+  $ git push
+
+.. hint:: Suppose d'avoir des droits en écriture sur le dépôt distant.
+
+.. note::
+   Lorsqu'on utilise plusieurs *branches* et plusieurs *remotes* on précise ce
+   qu'on pousse et où on le pousse ::
+     $ git push <dépôt-distant> <branche-locale>
+.. _git-clone:
+.. index:: git clone, cloner
+
+Si vous venez d'ajouter un dépôt distant à votre dépôt local, vous aurez besoin de faire, la première fois ::
+
+     $ git push -u <dépôt> master
+
+Cloner un dépôt distant
+-----------------------
+
+Cette opération est en fait un raccourci, qui
+
+  - crée un nouveau dépôt local,
+  - le lie au dépôt distant sous le nom ``origin``, et
+  - récupère immédiatement les commits de l'origine.
+
+::
+
+  $ git clone <emplacement> <répertoire-destination>
+
+Remarque : le clone peut se faire selon plusieurs protocoles : HTTPS, SSH, etc.
+
+.. note:: Problème depuis certains réseaux
+
+  Si vous rencontrez des problèmes pour cloner un dépôt,
+  cela peut venir d'une mauvaise configuration du *proxy*.
+  Dans ``git bash``, tapez les deux commandes suivantes ::
+
+    $ git config --global http.proxy http://proxy.univ-lyon1.fr:3128
+    $ git config --global https.proxy https://proxy.univ-lyon1.fr:3128
+
+  puis tentez à nouveau.
+
+Types de collaborations
++++++++++++++++++++++++
+
+La flexibilité de GIT permet de multiples formes d'organisation pour le travail collaboratif.
+
+Nous aborderons uniquement le mode en étoile, mais il en existe d'autres (notamment *pair à pair*)
+
+Organisation en étoile
+----------------------
+
+.. figure:: _static/collab_star.*
+   :width: 90%
+
+..
+   Organisation pair-à-pair
+   ------------------------
+
+   .. figure:: _static/collab_p2p.*
+      :width: 90%
+
+   .. index:: git init, git remote, git push
+
+..
+   Créer un dépôt public
+   ---------------------
+
+   ::
+
+     $ git init --bare <emplacement>
+     $ git remote add <nom> <emplacement>
+     $ git push <nom> HEAD
+
+   .. note::
+
+      L'emplacement choisi doit évidemment être accessible à d'autres,
+      par exemple sur un disque partagé.
+
+      La procédure d'initialisation du dépôt peut-être différente
+      si on utilise un service en réseau (par exemple github_).
+
+   .. _github: http://github.com/
+
+
+.. rst-class:: exercice
+
+
+Exercices
++++++++++
+
+.. rst-class:: exercice
+
+Exercice : préambule
+--------------------
+
+Nous supposons que vous disposez d'un compte sur https://framagit.org
+
+Vous disposez normalement de votre clef SSH publique dans  *~/.ssh/id_rsa.pub*
+
+Cette clef servira à vous authentifier auprès des dépôts git distants hébergés
+sur framagit.
+
+Copier/coller son contenu dans votre profil : https://framagit.org/profile/keys
+et sauvegarder.
+
+.. rst-class:: exercice
+
+Exercice : utiliser un dépôt distant
+------------------------------------
+
+#. Sur votre compte *framagit*, créez un nouveau dépôt privé nommé ``tp-intro-git``,
+   bien noter l'emplacement du dépôt
+   git distant (de la forme ``git@framagit.org:<login>/tp-intro-git.git``).
+
+#. Prenez le dépôt local avec lequel vous avez déjà travaillé dans la séance,
+   et liez ce dépôt à votre dépôt distant (*remote*) fraîchement créé,
+
+#. Poussez-y vos commits.
+
+.. rst-class:: exercice
+
+Exercice : collaborer (par binôme)
+----------------------------------
+
+On constitue des binômes, pour l'exemple, on considèrera que *bob* et *alice*
+sont les membres du binôme.
+
+
+#. *bob* : donnez les droits d'accès *Développeur* au groupe de formation (dont
+   *alice* fait partie) et communiquez à *alice* l'emplacement du dépôt distant.
+
+   .. figure:: _static/gitlab-project-settings.png
+
+      Menu préférences d'un dépôt.
+
+.. rst-class:: exercice
+
+.. nextslide::
+
+
+2. *alice* :  *clonez* le dépôt de *bob*,  *commitez-y* quelques modifications.
+
+#. *alice & bob* : Pourquoi ne sont-elles pas immédiatement visibles de bob ?
+
+#. *alice & bob* : Remédiez à ce problème
+
+#. *bob* : récupèrez les modifications d'*alice*
+#. *bob* : poussez à votre tour quelques modifications
+#. *alice* : récupérez les modifications de *bob* (*et indiquer la référence de
+   son dernier commit dans votre fichier de rendu*).
 
 
 BONUS : Ré-écrire l'histoire
