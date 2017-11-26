@@ -282,9 +282,8 @@ Mise en œuvre
    pour manipuler des dépôts git telles ``gitk`` ou ``gitg``.
 
 .. hint:: Pour que ``git`` comprenne que vous souhaitez manipuler un dépôt, il
-   convient que votre *répertoire courant* soit le répertoire parent du
-   ``.git/`` de ce dépôt, ou bien un des sous-répertoires de ce répertoire
-   parent.
+   convient que votre *répertoire courant* soit le répertoire qui contient le
+   ``.git/``, ou bien un de ses sous-répertoires.
 .. index:: git init
 
 Création du dépôt
