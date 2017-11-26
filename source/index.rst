@@ -594,12 +594,6 @@ Dans certaines situations, on peut souhaiter faire cohabiter et évoluer
 
 Ces versions peuvent parfois converger à nouveau (mais pas forcément).
 
-.. note::
-
-   Les copies d'écran de ces exemples sont faites avec
-   un autre logiciel que les précédentes,
-   ce qui explique le code couleur différent.
-
 .. _exemple-cv:
 
 Exemple 1 : CV
@@ -643,11 +637,6 @@ Illustration
 
 .. figure:: _static/branches_siteweb.*
    :width: 60%
-
-.. note::
-
-   L'historique n'est même plus un arbre,
-   mais un graphe orienté sans cycle.
 
 .. _exemple-logiciel:
 
@@ -700,28 +689,6 @@ Notions
    l'`exemple du logiciel <exemple-logiciel>`:ref:).
 
 
-.. index:: accessible
-
-Accessibilité
--------------
-
-Un commit est **accessible** s'il appartient à au moins une branche.
-Les commits non accessibles sont automatiquement supprimés par GIT.
-
-.. note::
-
-   Cette suppression n'est cependant pas immédiate.
-   Il est donc parfois possible de « sauver »
-   un commit devenu récemment inaccessible,
-   en créant une nouvelle branche avant sa suppression effective.
-
-Lorsqu'on `navigue dans l'historique <naviguer>`:ref:,
-on lie la copie de travail à un commit particulier plutôt qu'à une branche
-(mode `detached HEAD`:eng:).
-
-→ Les commits que l'on ferait dans cet état n'appartiendraient à aucune branche
-et seraient donc perdus.
-
 Mise en œuvre
 +++++++++++++
 
@@ -749,23 +716,12 @@ Cette opération consiste à placer, sur un commit existant,
 le sommet d'une *nouvelle* branche
 (qui pourra croître indépendamment des autres).
 
-
 .. index:: git branch, git checkout
 
-Pour créer une nouvelle branche sur le commit courant ::
-
-  $ git branch <nom_nouvelle_branche>
-
-Pour créer une nouvelle branche à un autre emplacement ::
-
-  $ git branch <nom_nouvelle_branche> <revision>
-
-Ces commandes ne changent pas la branche courante.
 Pour créer une nouvelle branche *et* en faire la branche courante,
-utilisez plutôt ::
+utilisez ::
 
   $ git checkout -b <nom_nouvelle_branche>    # ou
-  $ git checkout -b <nom_nouvelle_branche> <revision>
 
 .. _changer_de_branche:
 
@@ -838,12 +794,6 @@ Fusionner deux branches
 L'opération de **fusion** (en anglais `merge`:eng:)
 permet d'intégrer les modifications d'une branche dans une autre.
 
-.. note::
-
-   GIT permet également de fusionner
-   plus de deux branches dans une même opération,
-   mais nous n'irons pas jusque là dans ce cours.
-
 Il y a deux situations possibles,
 selon les positions relatives de la branche à fusionner (source)
 et de la branche destination.
@@ -865,17 +815,6 @@ Ce type de fusion est appelée `fast forward`:eng:.
 .. note:: Ce comportement préserve autant que possible
    un historique linéaire, donc plus simple.
 
-   Cependant, dans certains cas, on souhaite forcer la création d'un commit
-   même lorsqu'on est dans cette situation
-   (c'est notamment le choix qui a été fait
-   dans l'`exemple du site web <exemple-siteweb>`:ref:).
-
-   Pour cela, en ligne de commande, on ajoutera l'option ``--no-ff``.
-
-   .. figure:: _static/merge-noff.*
-      :width: 350pt
-
-   Avantage : les deux branches gardent leur identité dans le graphe.
 
 Fusion avec commit
 ``````````````````
@@ -1241,17 +1180,6 @@ Cette opération est en fait un raccourci, qui
   $ git clone <emplacement> <répertoire-destination>
 
 Remarque : le clone peut se faire selon plusieurs protocoles : HTTPS, SSH, etc.
-
-.. note:: Problème depuis certains réseaux
-
-  Si vous rencontrez des problèmes pour cloner un dépôt,
-  cela peut venir d'une mauvaise configuration du *proxy*.
-  Dans ``git bash``, tapez les deux commandes suivantes ::
-
-    $ git config --global http.proxy http://proxy.univ-lyon1.fr:3128
-    $ git config --global https.proxy https://proxy.univ-lyon1.fr:3128
-
-  puis tentez à nouveau.
 
 Types de collaborations
 +++++++++++++++++++++++
