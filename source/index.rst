@@ -36,6 +36,8 @@
 
 .. role:: eng
 
+.. role:: lat
+
 .. role:: del
 
 
@@ -283,6 +285,7 @@ Mise en œuvre
    convient que votre *répertoire courant* soit le répertoire parent du
    ``.git/`` de ce dépôt, ou bien un des sous-répertoires de ce répertoire
    parent.
+.. index:: git init
 
 Création du dépôt
 -----------------
@@ -325,16 +328,16 @@ Retirer un fichier de l'index ::
 
 Pour voir l'état des modifications en cours ::
 
-  $ git status
-  $ git diff
+  $ git status    # résumé
+  $ git diff      # détail des changements
 
 Pour commiter les modifications indexées ::
 
   $ git commit
 
 .. nextslide::
-  
-  
+
+
 .. hint::
 
    Pour déplacer/renommer des fichiers, le plus simple est de ne **pas** le
@@ -373,7 +376,7 @@ Consulter l'historique
 
 Consulter l'index
 -----------------
-  
+
 La commande ``git status`` permet de savoir où on en est :
 
 .. figure:: _static/historique3.png
@@ -397,6 +400,7 @@ Résumé des états possibles d'un fichier avec GIT
 
 .. rst-class:: exercice
 
+
 Exercice - Préambule
 --------------------
 
@@ -413,7 +417,7 @@ Lorsque vous utilisez git pour la première fois sur votre machine, il peut êtr
 
 .. note::
    Ces paramètres sont bien entendu à personaliser.
- 
+
 .. rst-class:: exercice
 
 Exercice
@@ -425,27 +429,23 @@ Exercice
 
 .. rst-class:: exercice
 
-#. Créez un nouveau dépôt git dans un dossier vide. Créez dans ce dernier un
-   nouveau répertoire
+#. Créez un nouveau répertoire, et faites-en un dépôt GIT.
 
-#. Avec un éditeur de texte, créez un fichier texte dans le répertoire, ajoutez
-   du contenu à ce fichier, et sauvegardez-le.
+#. Ajoutez un fichier HTML dans ce répertoire,
+   contenant une brève description de vous
+   (ou de n'importe quel autre sujet qui vous intéresse).
+   Commitez ces changements.
 
-#. Commitez ce fichier
+#. Ajoutez maintenant une feuille de style *externe* à votre fichier HTML,
+   (c'est à dire sous la forme d'un fichier CSS séparé,
+   référencé par une balise ``<link>``).
+   Commitez ces changements.
 
-.. nextslide::
-
-4. Entraînez-vous à faire des commits :
-   modifiez votre fichier texte, et sauvegardez-le,
-   utilisez la ligne de commande pour faire un commit des modifications,
-   et répétez l'opération plusieurs fois pour bien comprendre le processus. 
-
-#. Ajoutez maintenant quelques fichiers dans votre répertoire (fichiers textes, images, etc.) et assurez-vous de bien commiter ces nouveaux fichiers. 
+#. Affichez l'historique de vos changements
 
 ..   * Créer votre projet GIT pour gérer votre CV en HTML
 ..   * Faites plusieurs commit (par exemple, après avoir rempli chaque section)
 ..   * Ajoutez des fichiers (par exemple, une photo, une feuille de style)
-
 
 
 Collaboration
@@ -537,11 +537,11 @@ Récupérer les commits distants
 À répéter régulièrement ::
 
   $ git pull
-  
+
 ..
      $ git fetch <dépôt-distant>
 
-     
+
 ..
    .. hint::
 
@@ -764,16 +764,16 @@ Il existe plusieurs méthodes pour spécifier une révision à GIT :
 
 (liste non exhaustive)
 
-Identificateur
---------------
+Identifiant
+-----------
 
-Chaque commit a un identificateur, affiché par la commande ``git log``
+Chaque commit a un identifiant, affiché par la commande ``git log``
 (cf. `figure <git-log>`:ref:).
 
 On peut spécifier une révision en utilisant
 
   - l'identifiant complet du commit, ou
-  - un préfixe non ambigu de cet identifiant.
+  - les premiers caractères de l'identifiant, tant qu'il n'y a pas d'ambiguïté
 
 Exemple ::
 
@@ -793,30 +793,13 @@ permet de remonter d'un commit dans l'historique.
 NB : ``HEAD~2`` remonte de deux commits, ``HEAD~3`` de trois commits,
 et ainsi de suite.
 
-Date
-----
-
-``@{<date>}`` désigne l'état du dépôt à la date donnée,
-qui peut être exprimée de multiples manières ::
-
-  $ git checkout "@{9:00}"                # ce matin à 9h
-  $ git checkout "@{yesteday}"            # hier à 00:00
-  $ git checkout "@{3 days ago}"          # il y a 3 jours
-  $ git checkout "@{2013-08-15 12:00}"    # le 15 août à midi
-
-.. note::
-
-   Les dates portent sur l'état du dépôt local,
-   *pas* sur les dates des commits.
-
-   Du coup, il n'est pas possible avec cette notation
-   de naviguer dans un historique *importé* depuis un dépôt distant.
 
 .. index:: git checkout
 
 Retour au présent
 +++++++++++++++++
 
+::
   $ git checkout master
 
 NB : ceci est en fait un cas particulier de l'action `changer_de_branche`:ref:
@@ -825,28 +808,24 @@ que nous étudierons un peu plus tard.
 
 
 .. rst-class:: exercice
- 
-Exercices
----------
 
-   #. Naviguez dans l'historique de votre dépôt créé précédemment 
-      en remontant par exemple 1, 5, 30 minutes en arrière.
+Exercice
+--------
 
-   #. `clonez <git-clone>`:ref: (dans un autre dossier) le repository suivant :
+#. Naviguez dans l'historique du dépôt créé à l'exercice précédent,
+   pour afficher l'avant-dernière version de votre fichier HTML.
 
-   http://champin.net/enseignement/intro-git/historique-images
+#. Affichez ensuite l'antépénultième (avant-avant-dernière) version.
 
-   Décrivez l'image que contient chacun des commits.
+#. Affichez ensuite la deuxième version de votre fichier HTML.
 
-   .. note::
+#. Affichez ensuite la première version de votre fichier HTML.
 
-      On verra plus tard en détail la notion de clonage.
-
-
+#. Revenez au « présent » (*i.e.* la dernière version).
 
 
 Entractes
-+++++++++++
++++++++++
 
 Nous venons de voir les fonctionnalités les plus basiques de GIT,
 qui permettent de gérer `efficacement`:del: correctement
@@ -854,7 +833,7 @@ l'historique d'un ensemble de fichiers
 → à utiliser *sans modération*.
 
 Dans la suite, nous allons étudier des fonctionnalités un peu plus avancées,
-qui seraient in-envisageables avec une gestion « manuelle » de l'historique.
+qui seraient impraticables avec une gestion « manuelle » de l'historique.
 
   - elle peuvent donc vous sembler superflues,
   - mais s'avèrent vite indispensables quand on y a pris goût.
@@ -950,13 +929,23 @@ Illustration
 .. figure:: _static/branches_logiciel.*
    :width: 80%
 
-.. index:: branche, sommet, tip
+.. index:: branche, sommet, tip, master
 
 Notions
 +++++++
 
-Une **branche** est la *lignée* (généalogique) d'un commit particulier,
-appelé le sommet (en anglais `tip`:eng:) de cette branche.
+* Une **branche** est la *lignée* (généalogique) de commits,
+  à laquelle on a donné un nom.
+
+* Le commit le plus récent de la branche est appelé *sommet*
+  (en anglais `tip`:eng:) de cette branche.
+
+* La copie de travail est (en général) liée au sommet d'une branche
+  (``master`` par défaut).
+
+* À chaque nouveau commit,
+  le sommet de la branche courante est avancé vers ce nouveau commit
+  (la branche « pousse »).
 
 .. note::
 
@@ -965,25 +954,19 @@ appelé le sommet (en anglais `tip`:eng:) de cette branche.
 
    Dans le cas simple, cette lignée a une structure linéaire,
    mais ce n'est pas toujours le cas
-   (comme en témoignent dans les illustrations ci-avant
+   (comme en témoignent, dans les illustrations ci-avant,
    la branche ``publié`` dans l'`exemple du site web <exemple-siteweb>`:ref:
    et la branche ``master`` dans
    l'`exemple du logiciel <exemple-logiciel>`:ref:).
 
-En temps normal :
-
-* la copie de travail est synchronisée avec le sommet d'une branche
-  (``master`` par défaut),
-
-* à chaque nouveau commit,
-  le sommet de la branche courante est avancé vers ce nouveau commit.
 
 .. index:: accessible
 
 Accessibilité
 -------------
 
-Un commit est **accessible** s'il appartient à une branche. Les commits non accessibles sont automatiquement supprimés par GIT.
+Un commit est **accessible** s'il appartient à au moins une branche.
+Les commits non accessibles sont automatiquement supprimés par GIT.
 
 .. note::
 
@@ -1064,7 +1047,7 @@ pour la mettre dans le même état que le sommet d'une branche.
 
 À propos de ``git checkout``
 ````````````````````````````
- 
+
 La commande ``git checkout`` est utilisée dans divers contextes,
 qui rendent difficile à percevoir sa cohérence interne.
 
@@ -1076,7 +1059,37 @@ Selon ses arguments, elle a des effets supplémentaires :
 * une révision : passer en mode *detached HEAD*
 
 
+
+.. rst-class:: exercice
+
+Exercice
+--------
+
+#. Dans le dépôt que vous avez créé au premier exercice,
+   créez une branche nommée ``style``, et placez-vous dans cette branche.
+
+#. Modifiez la feuille de style (par exemple pour changer la couleur de fond)
+   et commitez vos changements.
+
+#. Revenez sur la branche ``master``.
+   Constatez que vos changements de style ont disparu (pour l'instant).
+
+#. Dans la branche ``master``,
+   modifiez ou ajoutez du contenu au fichier HTML,
+   et commitez vos modifications.
+
+#. Revenez sur la branche ``style``.
+   Constatez que vos changements de style ont réapparu,
+   mais que vos dernières modifications dans le fichier HTML ont, elles, disparu.
+
+#. Modifiez à nouveau la feuille de style (par exemple pour changer la police)
+   et commitez vos changements.
+
+
+
 .. index:: fusion, merge
+
+.. _fusion:
 
 Fusionner deux branches
 -----------------------
@@ -1143,7 +1156,7 @@ ce commit devient le sommet de la branche destination.
 
 .. index:: git merge
 
-Deux méthodes
+Mise en œuvre
 `````````````
 
 ::
@@ -1155,37 +1168,21 @@ Deux méthodes
 Exercice
 ````````
 
-#. `Clonez <git-clone>`:ref: le dépôt suivant : 
-   https://github.com/ameliecordier/tp-cv/
+#. Nous allons maintenant fusionner la branche ``style``
+   (créée à l'exercice précédent)
+   avec la branche ``master``.
 
-#. Visualisez l'historique des modifications sur ce dépôt. 
+#. Placez-vous dans la branche ``master``,
+   et appliquez la méthode de votre choix
+   (ligne de commande ou interface graphique)
+   pour y fusionner la branche ``style``.
 
-#. Créez une nouvelle branche appelée "Amazon". 
+#. Constatez que toutes vos modifications (contenu HTML et style)
+   sont maintenant visibles.
 
-#. Dans cette branche, modifiez ``CV.txt`` en ajoutant vos compétences en programmation. 
+#. Constatez également (dans l'historique)
+   que le commit ainsi créé a *deux* commit parents.
 
-#. Revenez dans la branche master. L'ajout des compétences en programmation est-il toujours visible ?
-
-#. Dans la branche master, modifiez ``CV.txt`` en ajoutant vos compétences en bureautique. 
-
-#. Fusionnez les modifications de la branche Amazon dans la branche master. La fusion s'est-elle bien passée ? A-t-elle donné lieu à un conflit ? 
-
-   .. * Créez dans une branche ``candidature`` une variante de votre CV
-   ..  pour répondre à une offre de stage
-
-   ..  - (par exemple : changement de la feuille de style,
-        modifications mineures du texte).
-
-   .. * Revenez dans la branche ``master`` et complétez votre CV
-   ..   (par exemple, nouvelle expérience professionnelle).
-
-   .. * Plus tard, vous décidez de candidater à nouveau chez le même employeur ;
-   ..  fusionnez les modifications de ``master`` dans la branche ``candidature``.
-
-   .. TODO
-
-      fournir un projet contenant déjà une base de travail?
-      acordier : je pense que c'est fait :)
 
 .. _conflits:
 
@@ -1203,7 +1200,7 @@ La fusion de branches est automatiquement gérée par GIT lorsque
 les modifications des deux branches portent sur :
 
 * des fichiers différents, ou
-* des partie distinctes des mêmes fichiers texte.
+* des parties distinctes des mêmes fichiers texte.
 
 Exemple géré par GIT
 --------------------
@@ -1274,7 +1271,7 @@ Remarque
 
 .. warning:: La stratégie de GIT n'est qu'une heuristique.
 
-   Des branches jugées compatibles peuvent être sémantiquement incohérentes.
+   Cela signifie que des branches jugées compatibles par GIT peuvent être sémantiquement incohérentes.
    Il convient donc de vérifier le résultat de la fusion,
    même lorsqu'aucun conflit n'est signalé.
 
@@ -1310,22 +1307,30 @@ pour :
    La 3e ligne modifiée
 
 Les fichiers binaires ne sont pas modifiés.
-    
+
+
+.. index:: git commit
+
+.. _résolution:
+
 Résolution du conflit
 ---------------------
-    
+
 Une fois les fichiers en conflit corrigés,
-il suffit de faire un commit.
-    
+on peut résoudre le conflit ::
+
+  $ git commit -a
+
 Le nouveau commit aura pour parents les sommets des branches fusionnées.
+
 
 .. index:: git merge
 
 Abandon
 -------
-    
+
 On peut également décider d'abandonner la fusion ::
-    
+
   $ git merge --abort
 
 .. rst-class:: exercice
@@ -1333,25 +1338,27 @@ On peut également décider d'abandonner la fusion ::
 Exercice
 ````````
 
-#. Dans la branche master de votre dépôt CV, ajoutez un fichier nommé ``conflit.txt`` contenant le texte suivant : 
-    
+#. Créez un nouveau dépot, et ajoutez-y un fichier ``conflit.txt`` contenant le texte suivant :
+
    .. code-block:: diff
 
       La première ligne
       La deuxième ligne
       La troisième ligne
 
-#. Créez une nouvelle branche, modifiez les lignes 1 et 3 du fichier ``conflit.txt`` et commitez vos changements. 
+#. Créez plusieurs branches,
+   dans lesquelles vous modifierez différemment le fichier ``conflit.txt``,
+   en suivant les exemples ci-avant.
+   Tentez ensuite de fusionner ces branches.
 
-#. Revenez à la branche master, modifiez les lignes 2 et 3 du fichier ``conflit.txt`` et commitez vos changements. 
+#. Lorsque GIT vous signale un conflit,
+   constatez comment le fichier ``conflit.txt`` a été modifié,
+   et résolvez le conflit.
 
-#. Fusionnez la branche précédente dans la branche master. Que se passe-t-il ? 
+
 
 BONUS : Ré-écrire l'histoire
 ============================
-
-.. note::
-   Cette section est ici pour référence mais ne sera pas traitée en cours.
 
 .. note::
 
@@ -1395,7 +1402,7 @@ il est possible de modifier (**amender**) le dernier commit créé.
 
 .. index:: git commit
 
-Deux méthodes
+Mise en œuvre
 -------------
 
 ::
@@ -1486,11 +1493,10 @@ N'hésitez pas à visiter ces sites et à explorer les projets qui s'y trouvent.
 C'est une grande source d'inspiration.
 
 
-
 Autres outils de gestion de version
 +++++++++++++++++++++++++++++++++++
 
-* Vous n'êtes pas certains de préférer GIT_? Prenez le temps de comparer les différents outils de gestion de version. Il existe de nombreux comparatifs en ligne, comme par exemple sur Wikipedia__. 
+* Vous n'êtes pas certains de préférer GIT_? Prenez le temps de comparer les différents outils de gestion de version. Il existe de nombreux comparatifs en ligne, comme par exemple sur Wikipedia__.
 
 __ http://en.wikipedia.org/wiki/Comparison_of_revision_control_software
 
@@ -1504,20 +1510,20 @@ __ http://en.wikipedia.org/wiki/Comparison_of_revision_control_software
   (de terminologie notamment).
 
 * Un guide de pour passer de GIT à Mercurial est disponible ici :
-  http://mercurial.selenic.com/wiki/GitConcepts
-  
+  https://www.mercurial-scm.org/wiki/GitConcepts
+
 .. _forge de Lyon1: http://forge.univ-lyon1.fr/
 
 
 
-Un dernier conseil 
+Un dernier conseil
 ++++++++++++++++++
 
 
 Rien de tel que la pratique pour maîtriser GIT
 (ou tout autre outil de gestion de version),
-alors n'hésitez pas à utiliser abondamment ces outils, 
-même pour vos petits projets... 
+alors n'hésitez pas à utiliser abondamment ces outils,
+même pour vos petits projets...
 
 
 Crédits
@@ -1525,6 +1531,8 @@ Crédits
 
 Ce support a été initialement réalisé par `Pierre-Antoine Champin`_,  `Amélie
 Cordier`_ puis adapté par `Jocelyn Delalande` pour ses besoins propres d'enseignement.
+
+Merci à Isabelle Gonçalves et `Jocelyn Delalande`_ pour leurs contributions.
 
 .. _Pierre-Antoine Champin: http://champin.net/
 .. _Amélie Cordier: http://acordier.net/

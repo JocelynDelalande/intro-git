@@ -23,6 +23,7 @@
 
 .slide.exercice {
     background-color: lightYellow;
+    overflow-y: scroll;
 }
 
 
@@ -56,4 +57,8 @@ table.logos td {
 
 .slide .logos {
     text-align: center;
+}
+
+.lat {
+    font-style: italic;
 }
