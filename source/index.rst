@@ -762,6 +762,12 @@ Selon ses arguments, elle a des effets supplémentaires :
 Exercice
 --------
 
+.. note:: Pour examiner l'historique des différentes branches visuellement sous
+   forme de graphe, installez le paquet ``gitg`` à l'aide de l'outil
+   ``apt``. Lancer la commande ``gitg`` depuis la console vous permet
+   d'afficher l'historique du dépôt sous forme de graphe, fermer la fenêtre
+   vous ramène à la console.
+
 #. Dans le dépôt que vous avez créé au premier exercice,
    créez une branche nommée ``style``, et placez-vous dans cette branche.
 
