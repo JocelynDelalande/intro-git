@@ -998,6 +998,10 @@ Les fichiers binaires ne sont pas modifiés.
 Résolution du conflit
 ---------------------
 
+Pour voir quels sont les fichiers en conflit ::
+
+  $ git status
+
 Une fois les fichiers en conflit corrigés,
 on peut résoudre le conflit ::
 
