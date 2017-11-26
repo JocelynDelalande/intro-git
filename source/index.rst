@@ -1271,7 +1271,7 @@ sont les membres du binôme.
 #. *bob*, donnez les droits d'accès suivants :
     - *Master* à *alice*
     - *Developper* au groupe de formation (onglet *« Share with group »*) et
-      communiquez à *alice* l'emplacement du dépôt distant.
+     communiquez à *alice* l'emplacement du dépôt distant.
 
    .. figure:: _static/gitlab-project-settings.png
 
